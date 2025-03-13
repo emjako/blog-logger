@@ -6,6 +6,15 @@ LOG_DIR = os.path.join(os.path.dirname(__file__), '..', 'logs')
 os.makedirs(LOG_DIR, exist_ok=True)
 
 def get_logger(name: str) -> logging.Logger:
+    """
+    Crée et configure un logger avec affichage console et écriture dans un fichier tournant.
+
+    Args:
+        name (str): nom du logger (souvent __name__)
+
+    Returns:
+        logging.Logger: logger configuré
+    """
     logger = logging.getLogger(name)
     if not logger.hasHandlers():
         logger.setLevel(logging.DEBUG)
